@@ -1,0 +1,11 @@
+# Secrets & local Vercel link — never commit
+.env
+.env*.local
+.vercel/
+
+# Dependencies / OS cruft
+node_modules/
+.DS_Store
+
+# Image-slot sidecar (runtime state)
+.image-slots.state.json

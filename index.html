@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sewer Camera Inspection in Dallas–Fort Worth | Mother Modern Plumbing</title>
+  <meta name="description" content="DFW's 5-star rated sewer camera inspection team. See what's inside your sewer line before you commit to repairs. 24/7 support across Dallas &amp; Fort Worth. Call 682.214.2405.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+  <style>
+    :root {
+      --navy: #14123f;
+      --navy-90: rgba(20, 18, 63, .85);
+      --pink: #f5376f;
+      --pink-hover: #d92559;
+      --pink-soft: #ff7ba8;
+      --blue: #2c4bf5;
+      --ink: #14123f;
+      --ink-soft: #4a4780;
+      --muted: #6b6899;
+      --lavender: #d9daf2;
+      --tint: #eff1fb;
+      --tint-2: #f0f1f7;
+      --font: "Inter", system-ui, -apple-system, sans-serif;
+      --radius: 14px;
+      --radius-lg: 18px;
+      --wrap: 1120px;
+      --gutter: 56px;
+      --shadow-card: 0 12px 28px rgba(20, 18, 63, .12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    html, body { overflow-x: hidden; }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--ink);
+      background: #ffffff;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      margin: 0;
+    }
+
+    p { margin: 0; }
+
+    a { color: inherit; }
+
+    img { display: block; max-width: 100%; }
+
+    :focus-visible {
+      outline: 3px solid var(--pink);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    ::selection { background: rgba(245, 55, 111, .2); }
+
+    .wrap {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding-left: var(--gutter);
+      padding-right: var(--gutter);
+    }
+
+    /* ---- animations ---- */
+    @keyframes liveDot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .35; transform: scale(.8); } }
+    @keyframes liveRing { 0% { transform: scale(.7); opacity: .7; } 100% { transform: scale(2.2); opacity: 0; } }
+    .dot { position: relative; display: inline-flex; width: 9px; height: 9px; flex: none; }
+    .dot span { position: absolute; inset: 0; border-radius: 999px; background: #3ddc84; }
+    .dot .pulse { animation: liveDot 1.6s ease-in-out infinite; }
+    .dot .ring { animation: liveRing 1.8s ease-out infinite; }
+    @media (prefers-reduced-motion: reduce) {
+      .dot .pulse, .dot .ring { animation: none; }
+      .dot .ring { display: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ---- buttons ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .15s ease;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-pink { background: var(--pink); color: #fff; padding: 16px 28px; font-size: 17px; }
+    .btn-pink:hover { background: var(--pink-hover); }
+    .btn-white { background: #fff; color: var(--pink); padding: 16px 28px; font-size: 18px; font-weight: 700; }
+    .btn-white:hover { background: #ffe3ec; }
+
+    /* ---- utility bar ---- */
+    .utilbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 9px var(--gutter);
+      background: var(--pink);
+      color: #fff;
+      font-size: 12.5px;
+      letter-spacing: .04em;
+    }
+    .utilbar .left { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+    .utilbar .sep { opacity: .6; }
+    .utilbar .dim { opacity: .85; }
+
+    /* ---- header ---- */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--navy);
+      color: #fff;
+    }
+    .site-header .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+    .brand { display: flex; align-items: center; gap: 22px; }
+    .brand img { height: 26px; width: auto; }
+    .brand .region {
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #a7a4d8;
+    }
+    .header-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color .15s ease;
+    }
+    .header-phone i { font-size: 18px; color: var(--pink-soft); }
+    .header-phone:hover { color: var(--pink-soft); }
+
+    /* ---- section base ---- */
+    section { position: relative; }
+    .pad { padding-top: 52px; padding-bottom: 52px; }
+    .kicker {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+
+    /* ---- hero ---- */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: #fff;
+      padding: 60px 0 56px;
+    }
+    .hero .blob {
+      position: absolute;
+      top: -180px;
+      right: -140px;
+      width: 760px;
+      height: 760px;
+      border-radius: 999px;
+      background: var(--pink);
+    }
+    .hero .wrap {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 48px;
+      align-items: center;
+    }
+    .hero-copy { display: flex; flex-direction: column; gap: 22px; }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      align-self: flex-start;
+      max-width: 100%;
+      background: #fff;
+      color: var(--navy);
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 7px 14px;
+      border-radius: 999px;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 7vw, 66px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      text-wrap: pretty;
+    }
+    .hero h1 .hl {
+      display: inline-block;
+      color: #fff;
+      padding: 0 12px;
+      border-radius: 8px;
+      background: var(--pink);
+    }
+    .hero p {
+      max-width: 30em;
+      font-size: 16px;
+      color: var(--lavender);
+    }
+
+    .call-panel {
+      align-self: center;
+      background: #fff;
+      color: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(10, 8, 40, .35);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .call-panel .status { display: flex; align-items: center; gap: 9px; }
+    .call-panel .status .dot span { background: #16a34a; }
+    .call-panel .status strong { font-size: 14px; letter-spacing: .02em; }
+    .call-panel .label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--pink);
+    }
+    .call-panel .number {
+      text-decoration: none;
+      color: var(--ink);
+      font-size: clamp(34px, 6vw, 42px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      transition: color .15s ease;
+    }
+    .call-panel .number:hover { color: var(--pink); }
+    .call-panel .desc { font-size: 14.5px; color: var(--ink-soft); }
+    .call-panel .tagline {
+      color: var(--pink);
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+    }
+    .call-panel .col { display: flex; flex-direction: column; gap: 6px; }
+
+    /* ---- process ---- */
+    .process { background: #fff; }
+    .process .wrap { display: flex; flex-direction: column; gap: 30px; }
+    .section-title-c {
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.1;
+      text-align: center;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .step {
+      border-radius: var(--radius);
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #fff;
+    }
+    .step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .step strong { font-size: 18px; font-weight: 600; }
+    .step span { font-size: 14px; }
+    .step-1 { background: var(--navy); }
+    .step-1 .num { background: var(--pink-soft); color: var(--navy); }
+    .step-1 span { color: var(--lavender); }
+    .step-2 { background: var(--pink); }
+    .step-2 .num { background: #fff; color: var(--pink); }
+    .step-2 span { color: #ffe3ec; }
+    .step-3 { background: var(--blue); }
+    .step-3 .num { background: #fff; color: var(--blue); }
+    .step-3 span { color: #dbe1ff; }
+    .step-4 { background: var(--navy); }
+    .step-4 .num { background: var(--pink-soft); color: var(--navy); }
+    .step-4 span { color: var(--lavender); }
+
+    /* ---- fleet band ---- */
+    .fleet {
+      position: relative;
+      min-height: 340px;
+      overflow: hidden;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+    }
+    .fleet img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 64% 55%;
+    }
+    .fleet .scrim {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(20,18,63,.92) 0%, rgba(20,18,63,.55) 46%, rgba(20,18,63,0) 78%);
+    }
+    .fleet .wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-top: 40px;
+      padding-bottom: 40px;
+    }
+    .fleet .kicker { color: var(--pink-soft); }
+    .fleet strong {
+      font-family: var(--font);
+      font-weight: 600;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: #fff;
+      max-width: 16em;
+    }
+
+    /* ---- services ---- */
+    .services { background: var(--tint); }
+    .services .wrap { display: flex; flex-direction: column; gap: 26px; }
+    .services h2 { font-size: clamp(26px, 4vw, 34px); }
+    .services .sub { font-size: 16px; color: var(--muted); margin-top: 8px; }
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .svc {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: box-shadow .15s ease, transform .15s ease;
+    }
+    .svc:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
+    .svc i { font-size: 26px; color: var(--blue); }
+    .svc strong { font-size: 16.5px; font-weight: 600; }
+
+    /* ---- accuracy / stat band ---- */
+    .accuracy {
+      background: var(--pink);
+      color: #fff;
+    }
+    .accuracy .wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 44px;
+      align-items: center;
+    }
+    .accuracy h2 { font-size: clamp(28px, 4.4vw, 38px); line-height: 1.08; }
+    .accuracy p { font-size: 16.5px; color: #ffe3ec; max-width: 28em; margin-top: 16px; }
+    .accuracy .btn-white { margin-top: 16px; align-self: flex-start; }
+    .accuracy .media { display: flex; flex-direction: column; gap: 14px; }
+    .accuracy .photo {
+      border-radius: var(--radius);
+      overflow: hidden;
+      height: 230px;
+      background: var(--navy-90);
+    }
+    .accuracy .photo img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; }
+    .stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .stat {
+      background: var(--navy-90);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .stat strong { font-size: 30px; font-weight: 600; }
+    .stat span { font-size: 13.5px; color: var(--lavender); }
+
+    /* ---- warning signs ---- */
+    .signs {
+      background: #241a52;
+      color: #fff;
+      overflow: hidden;
+    }
+    .signs .blob {
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      border-radius: 999px;
+      background: #6d1c56;
+      opacity: .55;
+    }
+    .signs .wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 32px;
+    }
+    .signs h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .signs h2 .hl { color: var(--pink-soft); }
+    .signs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 30px 26px;
+      width: 100%;
+    }
+    .sign {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+    .sign .ico {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 999px;
+      background: var(--pink);
+      flex: none;
+    }
+    .sign .ico i { font-size: 21px; color: #fff; }
+    .sign strong { font-size: 17.5px; font-weight: 600; }
+    .sign span { font-size: 14.5px; color: #cfcdf0; }
+
+    /* ---- on the job ---- */
+    .onjob { background: #fff; }
+    .onjob .wrap { display: flex; flex-direction: column; gap: 26px; }
+    .onjob h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; text-align: center; }
+    .photos {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+    .photos .frame {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 330px;
+      background: var(--tint);
+    }
+    .photos .frame img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---- reviews ---- */
+    .reviews { background: var(--tint-2); }
+    .reviews .head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .reviews h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .reviews h2 .hl { color: var(--pink); }
+    .reviews .rating {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .reviews .rating i { font-size: 20px; color: var(--blue); }
+    .review-track {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 4px var(--gutter) 14px;
+      margin-top: 26px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .review {
+      flex: 0 0 330px;
+      scroll-snap-align: start;
+      background: #1b1857;
+      border-radius: 16px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      color: #fff;
+    }
+    .review .who { display: flex; align-items: center; gap: 11px; }
+    .review .avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: none;
+    }
+    .review .whometa { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+    .review .whometa strong { font-size: 15.5px; font-weight: 600; }
+    .review .whometa .date { font-size: 12px; color: #8f8cc4; }
+    .review .who .brand { margin-left: auto; font-size: 20px; color: #fff; }
+    .review .stars { display: flex; gap: 2px; color: #ffb703; font-size: 14px; }
+    .review p { font-size: 14.5px; color: var(--lavender); }
+    .review .meta { margin-top: auto; font-size: 12px; color: #8f8cc4; }
+    .review .readmore { font-weight: 700; font-size: 13.5px; color: var(--pink-soft); text-decoration: none; }
+    .review .readmore:hover { text-decoration: underline; }
+
+    /* ---- awards ---- */
+    .awards { background: #fff; }
+    .awards .wrap { display: flex; flex-direction: column; gap: 28px; }
+    .awards h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .awards h2 .hl { color: var(--pink); }
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .award {
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .award.light { background: #f8f9fe; border: 1px solid #e6e8f6; }
+    .award.dark { background: var(--navy); color: #fff; }
+    .award .badge {
+      width: 84px;
+      height: 84px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .award.light .badge { background: var(--tint); color: var(--pink); }
+    .award.dark .badge { background: #241a52; color: var(--pink-soft); }
+    .award .badge i { font-size: 40px; }
+    .award strong { font-size: 19px; font-weight: 600; }
+    .award .light-desc { font-size: 14.5px; color: var(--ink-soft); }
+    .award.dark .light-desc { color: var(--lavender); }
+
+    /* ---- service areas ---- */
+    .areas { background: var(--tint); overflow: hidden; }
+    .areas .blob {
+      position: absolute;
+      top: -160px;
+      left: 40%;
+      width: 480px;
+      height: 480px;
+      border-radius: 999px;
+      background: var(--pink);
+      opacity: .12;
+    }
+    .areas .wrap { position: relative; display: flex; flex-direction: column; gap: 26px; }
+    .areas .head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .areas h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .areas h2 .hl { color: var(--pink); }
+    .areas .note {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+    }
+    .areas .note i { font-size: 18px; color: var(--pink); }
+    .map {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e0e3f4;
+      background: var(--tint);
+    }
+    .map img { width: 100%; height: auto; }
+    .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+    .pill {
+      background: #fff;
+      border: 1px solid #e0e3f4;
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+    .pill.solid { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+    /* ---- footer ---- */
+    .site-footer {
+      background: var(--navy);
+      color: #d9daf2;
+      font-size: 14px;
+    }
+    .site-footer .wrap { padding-top: 56px; padding-bottom: 40px; }
+    .footer-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 22px; }
+    .footer-brand img { height: 40px; width: auto; }
+    .socials { display: flex; gap: 14px; }
+    .socials a {
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: background-color .15s ease;
+    }
+    .socials a i { font-size: 21px; }
+    .socials a:hover { background: var(--pink-hover); }
+    .footer-phone { color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer-phone:hover { color: var(--pink-soft); }
+    .footer-brand address { font-style: normal; color: #d9daf2; }
+    .footer-license {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: right;
+    }
+    .footer-license li:first-child { color: #fff; font-weight: 600; }
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      font-size: 13.5px;
+    }
+    .footer-bottom nav { display: flex; gap: 40px; flex-wrap: wrap; }
+    .footer-bottom a { color: #d9daf2; text-decoration: none; }
+    .footer-bottom a:hover { color: var(--pink-soft); }
+
+    /* ================= responsive ================= */
+    @media (max-width: 1000px) {
+      :root { --gutter: 32px; }
+      .hero .wrap { grid-template-columns: 1fr; gap: 32px; }
+      .call-panel { align-self: stretch; }
+      .accuracy .wrap { grid-template-columns: 1fr; gap: 28px; }
+      .accuracy .btn-white { align-self: stretch; }
+      .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .svc-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .photos { grid-template-columns: 1fr; }
+      .photos .frame { height: 260px; }
+      .award-grid { grid-template-columns: 1fr; }
+      .signs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .footer-main { gap: 28px; }
+      .footer-license { text-align: left; }
+    }
+
+    @media (max-width: 640px) {
+      :root { --gutter: 20px; }
+      .pad { padding-top: 40px; padding-bottom: 40px; }
+      .utilbar { flex-direction: column; align-items: flex-start; gap: 6px; }
+      .utilbar .dim { display: none; }
+      .brand { gap: 12px; }
+      .brand .region { display: none; }
+      .steps { grid-template-columns: 1fr; }
+      .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signs-grid { grid-template-columns: 1fr; }
+      .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
+      .review { flex: 0 0 82vw; }
+      .review-track { padding-left: var(--gutter); padding-right: var(--gutter); }
+      .reviews .head { padding-left: var(--gutter); padding-right: var(--gutter); }
+      .reviews .wrap { padding-left: 0; padding-right: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- utility bar -->
+  <div class="utilbar">
+    <div class="left">
+      <span class="dot"><span class="pulse"></span><span class="ring"></span></span>
+      <span style="font-weight:600">Camera inspection crews on the road</span>
+      <span class="sep">·</span>
+      <span class="dim">Serving all of DFW</span>
+    </div>
+    <span class="dim">24/7 support, every hour of every day</span>
+  </div>
+
+  <!-- header -->
+  <header class="site-header">
+    <div class="wrap">
+      <div class="brand">
+        <img src="https://plumbing.callmother.com/wp-content/uploads/2026/07/Mother_Logotype_Blue-1.png" alt="Mother Modern Plumbing">
+        <span class="region">Dallas &amp; Fort Worth</span>
+      </div>
+      <a href="tel:6822142405" class="header-phone">
+        <i class="ph-fill ph-phone-call"></i>682.214.2405
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="blob" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-copy">
+          <span class="hero-badge"><i class="ph-fill ph-lightning"></i>Sewer camera inspection in Dallas–Fort Worth</span>
+          <h1>Know<br><span class="hl">What's in</span><br>Your Sewer</h1>
+          <p>Watch your inspection live on an iPad. See exactly what your technician sees, ask questions as they go, and understand the condition of your sewer before you make a decision.</p>
+        </div>
+
+        <div class="call-panel">
+          <div class="status">
+            <span class="dot"><span class="pulse"></span></span>
+            <strong>24/7 support</strong>
+          </div>
+          <div class="col">
+            <span class="label">Camera inspection &amp; emergencies</span>
+            <a href="tel:6822142405" class="number">682.214.2405</a>
+            <span class="desc">Get the facts before you commit to sewer line repair. Call and talk it through with a plumber who can put a camera on your line.</span>
+            <span class="tagline">See what lurks in pipes before it surprises you.</span>
+          </div>
+          <a href="tel:6822142405" class="btn btn-pink"><i class="ph-fill ph-phone-call" style="font-size:20px"></i>Call now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- awards -->
+    <section class="awards pad">
+      <div class="wrap">
+        <h2>Our plumbers are the best.<br><span class="hl">Don't just take our word for it.</span></h2>
+        <div class="award-grid">
+          <div class="award light">
+            <div class="badge"><i class="ph-fill ph-trophy"></i></div>
+            <strong>Best Plumbing Company, Fort Worth Star-Telegram</strong>
+            <span class="light-desc">An independent reader's choice award. Earned by our customers, not paid for.</span>
+          </div>
+          <div class="award dark">
+            <div class="badge"><i class="ph-fill ph-seal-check"></i></div>
+            <strong>Good Contractor List Member · $25,000 guarantee</strong>
+            <span class="light-desc">Fully vetted and approved. Every job is backed by a $25,000 member guarantee.</span>
+          </div>
+          <div class="award light">
+            <div class="badge"><i class="ph-fill ph-shield-check"></i></div>
+            <strong>Licensed &amp; Insured · State of Texas</strong>
+            <span class="light-desc">All technicians are licensed, background-checked and insured.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- process -->
+    <section class="process pad">
+      <div class="wrap">
+        <h2 class="section-title-c">4-step sewer camera inspection process.</h2>
+        <div class="steps">
+          <div class="step step-1">
+            <span class="num">1</span>
+            <strong>Find the access point</strong>
+            <span>We locate the best possible access point in your sewer line to insert the camera. This is usually your exterior sewer line cleanout.</span>
+          </div>
+          <div class="step step-2">
+            <span class="num">2</span>
+            <strong>Insert the camera</strong>
+            <span>Your plumber inserts and carefully moves the cable through your pipe, navigating bends and potential obstructions.</span>
+          </div>
+          <div class="step step-3">
+            <span class="num">3</span>
+            <strong>Inspect in real time</strong>
+            <span>We monitor the video feed live, inspecting the pipe walls for cracks, leaks, blockages, corrosion and misaligned joints.</span>
+          </div>
+          <div class="step step-4">
+            <span class="num">4</span>
+            <strong>Pinpoint the problem</strong>
+            <span>If a problem is identified, the onboard distance counter pinpoints its exact location above ground. Then you choose what to do about it.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- fleet band -->
+    <section class="fleet">
+      <img src="assets/web-photo-cam-tech-feed.jpg" alt="A Mother Modern Plumbing technician feeding a sewer camera line along a DFW home">
+      <div class="scrim" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="kicker">Camera rigs on every truck</span>
+        <strong>There's plumbing. And then there's Mother Modern Plumbing.</strong>
+      </div>
+    </section>
+
+    <!-- services -->
+    <section class="services pad">
+      <div class="wrap">
+        <div>
+          <h2>Camera Inspection &amp; Sewer Services in Dallas-Fort Worth</h2>
+          <div class="sub">Precision Plumbing. Not An Oxymoron.</div>
+        </div>
+        <div class="svc-grid">
+          <div class="svc"><i class="ph ph-video-camera"></i><strong>Sewer Camera Inspection</strong></div>
+          <div class="svc"><i class="ph ph-pipe"></i><strong>Sewer Line Repair and Replacement</strong></div>
+          <div class="svc"><i class="ph ph-thermometer-hot"></i><strong>Water Heater Replacement</strong></div>
+          <div class="svc"><i class="ph ph-magnifying-glass"></i><strong>Water Leak Detection</strong></div>
+          <div class="svc"><i class="ph ph-drop"></i><strong>Drain Cleaning</strong></div>
+          <div class="svc"><i class="ph ph-toilet"></i><strong>Toilet Repair and Rebuild</strong></div>
+          <div class="svc"><i class="ph ph-drop-half"></i><strong>Water Line Repair and Replacement</strong></div>
+          <div class="svc"><i class="ph ph-flame"></i><strong>Gas Line Repair</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- accuracy / stat band -->
+    <section class="accuracy pad">
+      <div class="wrap">
+        <div>
+          <h2>DFW's most accurate plumbing camera inspection.</h2>
+          <p>Our licensed sewer plumbers are trained and certified on the latest state-of-the-art camera equipment to diagnose your underground plumbing issue with precision and accuracy. No unnecessary digging, no mess, no stress.</p>
+          <a href="tel:6822142405" class="btn btn-white"><i class="ph-fill ph-phone-call" style="font-size:21px"></i>682.214.2405</a>
+        </div>
+        <div class="media">
+          <div class="photo">
+            <img src="assets/web-photo-cam-monitor.jpg" alt="A Mother Modern Plumbing technician feeding the camera line while the SeeSnake monitor shows the inside of the pipe">
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>24/7</strong><span>Support, every hour</span></div>
+            <div class="stat"><strong>5.0</strong><span>Google, Angi, Facebook &amp; Yelp</span></div>
+            <div class="stat"><strong>A+</strong><span>BBB accredited</span></div>
+            <div class="stat"><strong>DFW</strong><span>Dallas &amp; Fort Worth metroplex</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- warning signs -->
+    <section class="signs pad">
+      <div class="blob" aria-hidden="true"></div>
+      <div class="wrap">
+        <h2>Call for a camera inspection when you see <span class="hl">these signs</span>.</h2>
+        <div class="signs-grid">
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-wind"></i></span>
+            <strong>Sewage smell inside or outside</strong>
+            <span>If you can smell sewage indoors or in the yard, don't wait. A damaged line exposes your family to harmful gases.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-hourglass"></i></span>
+            <strong>Multiple slow drains</strong>
+            <span>One slow drain is a local clog. Several across the house points to the main sewer line.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-waves"></i></span>
+            <strong>Toilets gurgling</strong>
+            <span>Bubbling or gurgling means air is trapped in the line, from a blockage or a break in the pipe.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-plant"></i></span>
+            <strong>Unusually green patches in the yard</strong>
+            <span>A bright green stripe across the lawn often means sewage is leaking underground and fertilising the grass above it.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-toilet"></i></span>
+            <strong>Sewage backing up into tubs or toilets</strong>
+            <span>Raw sewage coming back up is a full blockage. Stop using water and call us immediately.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-house-line"></i></span>
+            <strong>Home is 30+ years old</strong>
+            <span>Older DFW homes often have cast iron or clay pipes past their lifespan. A camera inspection is worth it.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-key"></i></span>
+            <strong>Buying a home in DFW</strong>
+            <span>A standard home inspection stops at the walls. A camera scope of the sewer line before you close tells you whether a five-figure repair is waiting for you.</span>
+          </div>
+          <div class="sign">
+            <span class="ico"><i class="ph-fill ph-file-text"></i></span>
+            <strong>Your insurer asks for documentation</strong>
+            <span>Insurance and warranty claims often require proof of the pipe's condition. We record the footage and give you the report.</span>
+          </div>
+        </div>
+        <a href="tel:6822142405" class="btn btn-white" style="font-size:16px"><i class="ph-fill ph-phone-call" style="font-size:19px"></i>682.214.2405</a>
+      </div>
+    </section>
+
+    <!-- on the job -->
+    <section class="onjob pad">
+      <div class="wrap">
+        <h2>Licensed masters and journeymen, on the job in your home.</h2>
+        <div class="photos">
+          <div class="frame"><img src="assets/web-photo-cam-tech-wide.jpg" alt="A Mother Modern Plumbing technician running a sewer camera into a cleanout at a DFW home"></div>
+          <div class="frame"><img src="assets/web-photo-cleanout.jpg" alt="Camera rig set up at an exterior sewer cleanout on a DFW patio"></div>
+          <div class="frame"><img src="assets/web-photo-fleet.jpg" alt="Mother Modern Plumbing trucks and vans parked along a Dallas–Fort Worth street"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- reviews -->
+    <section class="reviews pad">
+      <div class="wrap">
+        <div class="head">
+          <h2><span class="hl">Read our sewer camera inspection reviews</span><br>from DFW homeowners.</h2>
+          <span class="rating"><i class="ph-fill ph-google-logo"></i>5.0 average · 1130 Google reviews</span>
+        </div>
+        <div class="review-track">
+          <article class="review">
+            <div class="who">
+              <div class="avatar">M</div>
+              <div class="whometa">
+                <strong>Masey Jordan</strong>
+                <span class="date">Sep 10, 2026</span>
+              </div>
+              <i class="ph-fill ph-google-logo brand"></i>
+            </div>
+            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p>Joe and Matt Ryckman were thorough, personable, and kind. They did not rush my camera plumbing test, were transparent with what they were seeing along the way, and spent extra…</p>
+            <span class="meta">Fort Worth · Camera Inspection</span>
+            <a href="#" class="readmore">Read more</a>
+          </article>
+          <article class="review">
+            <div class="who">
+              <div class="avatar">J</div>
+              <div class="whometa">
+                <strong>Jamal Abdalla</strong>
+                <span class="date">Sep 3, 2026</span>
+              </div>
+              <i class="ph-fill ph-google-logo brand"></i>
+            </div>
+            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p>I own 1968 house with cast iron sewer pipes. One day the toilet clogged, called a plumber, unclogged it, also did a full diagnostic using a drain camera. Told me: rusted, cracked, some pipe shifted — they need…</p>
+            <span class="meta">Fort Worth · Camera Inspection</span>
+            <a href="#" class="readmore">Read more</a>
+          </article>
+          <article class="review">
+            <div class="who">
+              <div class="avatar">C</div>
+              <div class="whometa">
+                <strong>CJ Chris Johnston</strong>
+                <span class="date">May 4, 2026</span>
+              </div>
+              <i class="ph-fill ph-google-logo brand"></i>
+            </div>
+            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p>Jesse Crane was awesome awesome…. arrived early in the service window, I was notified 40 minutes prior and able to track tech to home. Came in, unplugged my line, showed me the issue…</p>
+            <span class="meta">Fort Worth · Camera Inspection</span>
+            <a href="#" class="readmore">Read more</a>
+          </article>
+          <article class="review">
+            <div class="who">
+              <div class="avatar">S</div>
+              <div class="whometa">
+                <strong>Sarah Fandrey</strong>
+                <span class="date">April 4, 2026</span>
+              </div>
+              <i class="ph-fill ph-google-logo brand"></i>
+            </div>
+            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+            <p>Adam came on a Sunday and got us all set. He's the BEST. Very pleasant and high functioning — zero errors. Was able to call late on a Saturday night and get help immediately…</p>
+            <span class="meta">Fort Worth · Camera Inspection</span>
+            <a href="#" class="readmore">Read more</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- service areas -->
+    <section class="areas pad">
+      <div class="blob" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="head">
+          <h2>We provide sewer camera inspection <span class="hl">across DFW.</span></h2>
+          <span class="note"><i class="ph-fill ph-map-pin"></i>Camera inspection across the metroplex</span>
+        </div>
+        <div class="map">
+          <img src="assets/dfw-service-area-v2.png" alt="Schematic map of Mother's service area across the Dallas–Fort Worth metroplex">
+        </div>
+        <div class="pills">
+          <span class="pill">Dallas</span>
+          <span class="pill">Fort Worth</span>
+          <span class="pill">Plano</span>
+          <span class="pill">Frisco</span>
+          <span class="pill">University Park</span>
+          <span class="pill">Allen</span>
+          <span class="pill">McKinney</span>
+          <span class="pill">Highland Park</span>
+          <span class="pill">Garland</span>
+          <span class="pill">Irving</span>
+          <span class="pill">Arlington</span>
+          <span class="pill">Lakewood</span>
+          <span class="pill">Richardson</span>
+          <span class="pill">Southlake</span>
+          <span class="pill">Grapevine</span>
+          <span class="pill">Carrollton</span>
+          <span class="pill">Coppell</span>
+          <span class="pill">Corinth</span>
+          <span class="pill solid">+ everywhere between</span>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <img src="https://plumbing.callmother.com/wp-content/uploads/2026/07/Mother_Logotype_Blue-1.png" alt="Mother Modern Plumbing">
+          <div class="socials">
+            <a href="#" aria-label="Instagram"><i class="ph-fill ph-instagram-logo"></i></a>
+            <a href="#" aria-label="Facebook"><i class="ph-fill ph-facebook-logo"></i></a>
+            <a href="#" aria-label="YouTube"><i class="ph-fill ph-youtube-logo"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="ph-fill ph-linkedin-logo"></i></a>
+          </div>
+          <a class="footer-phone" href="tel:8334332711">(833) 433-2711</a>
+          <address>8350 Muirwood Trl Fort Worth, TX 76137</address>
+        </div>
+        <ul class="footer-license">
+          <li>License Information</li>
+          <li>License Number: RMP-43457</li>
+          <li>Texas State Board of Plumbing Examiners</li>
+          <li>Board Phone: (512) 936-5200</li>
+          <li>Board Address: PO Box 4200</li>
+          <li>Austin, TX 78765</li>
+        </ul>
+      </div>
+      <div class="footer-bottom">
+        <span>©Mother Plumbing. 2026. All Rights Reserved.</span>
+        <nav>
+          <a href="#">For Agents</a>
+          <a href="#">Terms &amp; Conditions</a>
+          <a href="#">Privacy Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

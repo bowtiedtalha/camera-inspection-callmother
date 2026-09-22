@@ -1,0 +1,10 @@
+# Source & tooling not used by the live page
+uploads/
+export/
+_ds/
+*.dc.html
+image-slot.js
+support.js
+
+# Unused asset (page uses dfw-service-area-v2.png)
+assets/dfw-service-area.png
