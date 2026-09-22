@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
   <style>
     :root {
@@ -533,18 +534,16 @@
       color: var(--muted);
     }
     .reviews .rating i { font-size: 25.7px; color: var(--blue); }
-    .review-track {
-      display: flex;
-      gap: 16px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      padding: 4px var(--gutter) 14px;
+    .reviews-swiper {
       margin-top: 26px;
-      -webkit-overflow-scrolling: touch;
+      width: 100%;
+      overflow: hidden;
+      padding: 4px 0 14px;
     }
+    .reviews-swiper .swiper-wrapper { align-items: stretch; }
     .review {
-      flex: 0 0 330px;
-      scroll-snap-align: start;
+      width: 330px;
+      height: auto;
       background: #1b1857;
       border-radius: 16px;
       padding: 22px;
@@ -552,6 +551,26 @@
       flex-direction: column;
       gap: 14px;
       color: #fff;
+    }
+    .reviews-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      margin-top: 26px;
+    }
+    .reviews-pagination .swiper-pagination-bullet {
+      width: 9px;
+      height: 9px;
+      margin: 0 !important;
+      border-radius: 999px;
+      background: var(--lavender);
+      opacity: 1;
+      transition: width .25s ease, background .25s ease;
+    }
+    .reviews-pagination .swiper-pagination-bullet-active {
+      width: 28px;
+      background: var(--pink);
     }
     .review .who { display: flex; align-items: center; gap: 11px; }
     .review .avatar {
@@ -820,10 +839,7 @@
       .signs .sign { flex-basis: 100%; max-width: 100%; }
       .hero .blob { width: 360px; height: 360px; top: -150px; right: -150px; }
       .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
-      .review { flex: 0 0 82vw; }
-      .review-track { padding-left: var(--gutter); padding-right: var(--gutter); }
-      .reviews .head { padding-left: var(--gutter); padding-right: var(--gutter); }
-      .reviews .wrap { padding-left: 0; padding-right: 0; }
+      .reviews .review { width: 82vw; }
     }
   </style>
 </head>
@@ -1084,8 +1100,9 @@ with your plumber and see exactly what we see.</p>
           <h2><span class="hl">Read our sewer camera inspection reviews</span><br>from DFW homeowners.</h2>
           <span class="rating"><i class="ph-fill ph-google-logo"></i>5.0 average · 1130 Google reviews</span>
         </div>
-        <div class="review-track">
-          <article class="review">
+        <div class="reviews-swiper swiper">
+          <div class="swiper-wrapper">
+          <article class="review swiper-slide">
             <div class="who">
               <div class="avatar">M</div>
               <div class="whometa">
@@ -1099,7 +1116,7 @@ with your plumber and see exactly what we see.</p>
             <span class="meta">Fort Worth · Camera Inspection</span>
             <a href="#" class="readmore">Read more</a>
           </article>
-          <article class="review">
+          <article class="review swiper-slide">
             <div class="who">
               <div class="avatar">J</div>
               <div class="whometa">
@@ -1113,7 +1130,7 @@ with your plumber and see exactly what we see.</p>
             <span class="meta">Fort Worth · Camera Inspection</span>
             <a href="#" class="readmore">Read more</a>
           </article>
-          <article class="review">
+          <article class="review swiper-slide">
             <div class="who">
               <div class="avatar">C</div>
               <div class="whometa">
@@ -1127,7 +1144,7 @@ with your plumber and see exactly what we see.</p>
             <span class="meta">Fort Worth · Camera Inspection</span>
             <a href="#" class="readmore">Read more</a>
           </article>
-          <article class="review">
+          <article class="review swiper-slide">
             <div class="who">
               <div class="avatar">S</div>
               <div class="whometa">
@@ -1141,7 +1158,9 @@ with your plumber and see exactly what we see.</p>
             <span class="meta">Fort Worth · Camera Inspection</span>
             <a href="#" class="readmore">Read more</a>
           </article>
+          </div>
         </div>
+        <div class="reviews-pagination"></div>
       </div>
     </section>
 
@@ -1262,6 +1281,21 @@ with your plumber and see exactly what we see.</p>
       closeBtn.addEventListener('click', closeModal);
       backdrop.addEventListener('click', function (e) {
         if (e.target === backdrop) closeModal();
+      });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    (function () {
+      if (typeof Swiper === 'undefined') return;
+      new Swiper('.reviews-swiper', {
+        slidesPerView: 'auto',
+        spaceBetween: 16,
+        loop: true,
+        grabCursor: true,
+        autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+        pagination: { el: '.reviews-pagination', clickable: true },
+        a11y: { enabled: true },
       });
     })();
   </script>
