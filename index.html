@@ -598,6 +598,79 @@
     .award strong { font-size: 24.4px; font-weight: 600; }
     .award .light-desc { font-size: 18.6px; color: var(--ink-soft); }
     .award.dark .light-desc { color: var(--lavender); }
+    .award-more {
+      align-self: flex-start;
+      margin-top: auto;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: none;
+      border: 0;
+      padding: 4px 0 0;
+      cursor: pointer;
+      font-family: var(--font);
+      font-weight: 700;
+      font-size: 17.4px;
+      color: var(--pink);
+    }
+    .award.dark .award-more { color: var(--pink-soft); }
+    .award-more:hover { text-decoration: underline; }
+    .award-more i { transition: transform .15s ease; }
+    .award-more:hover i { transform: translateX(3px); }
+
+    /* ---- modal ---- */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(10, 8, 40, .55);
+      backdrop-filter: blur(3px);
+    }
+    .modal-backdrop[hidden] { display: none; }
+    .modal {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+      max-width: 560px;
+      max-height: calc(100vh - 48px);
+      overflow: auto;
+      background: #fff;
+      color: var(--ink);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 30px 80px rgba(10, 8, 40, .4);
+      animation: modalIn .18s ease;
+    }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .modal { animation: none; } }
+    .modal-badge { height: 96px; display: flex; }
+    .modal-badge img { height: 100%; width: auto; }
+    .modal h3 { font-size: 26px; line-height: 1.2; padding-right: 40px; }
+    .modal p { font-size: 18px; line-height: 1.6; color: var(--ink-soft); }
+    .modal-cta { align-self: flex-start; margin-top: 8px; }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 40px;
+      height: 40px;
+      border-radius: 999px;
+      border: 0;
+      background: var(--tint);
+      color: var(--ink);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+    .modal-close:hover { background: #e6e8f6; }
 
     /* ---- service areas ---- */
     .areas { background: var(--tint); overflow: hidden; }
@@ -817,16 +890,34 @@
             <div class="badge"><img src="assets/award-dfw-winner.svg" alt="DFW Favorites 2026 winner badge"></div>
             <strong>Best Plumbing Company, Fort Worth Star-Telegram</strong>
             <span class="light-desc">An independent reader's choice award. Earned by our customers, not paid for.</span>
+            <button type="button" class="award-more"
+              data-badge="assets/award-dfw-winner.svg"
+              data-title="Best Plumbing Company, Fort Worth Star-Telegram"
+              data-body="Mother Modern Plumbing was voted Best Plumbing Company in the Fort Worth Star-Telegram's DFW Favorites 2026 reader's choice awards. This recognition comes straight from the community — homeowners across Dallas–Fort Worth nominated and voted for us. It's an award that can't be bought or paid for, and it reflects the thousands of families who trust us for honest, high-quality plumbing work.">
+              Read more <i class="ph ph-arrow-right"></i>
+            </button>
           </div>
           <div class="award dark">
             <div class="badge"><img src="assets/award-good-contractors.svg" alt="The Good Contractors List member badge"></div>
             <strong>Good Contractor List Member · $25,000 guarantee</strong>
             <span class="light-desc">Fully vetted and approved. Every job is backed by a $25,000 member guarantee.</span>
+            <button type="button" class="award-more"
+              data-badge="assets/award-good-contractors.svg"
+              data-title="Good Contractor List Member · $25,000 guarantee"
+              data-body="We're a vetted member of The Good Contractors List, an organization that thoroughly screens contractors for licensing, insurance, references and workmanship before granting membership. Every job we perform for you is backed by The Good Contractors List's $25,000 member guarantee — added protection and real peace of mind on top of our own workmanship warranty.">
+              Read more <i class="ph ph-arrow-right"></i>
+            </button>
           </div>
           <div class="award light">
             <div class="badge"><img src="assets/award-texas-plumber.svg" alt="Texas State Board of Plumbing Examiners licensed seal"></div>
             <strong>Licensed &amp; Insured · State of Texas</strong>
             <span class="light-desc">All technicians are licensed, background-checked and insured.</span>
+            <button type="button" class="award-more"
+              data-badge="assets/award-texas-plumber.svg"
+              data-title="Licensed &amp; Insured · State of Texas"
+              data-body="Every one of our plumbers is licensed by the Texas State Board of Plumbing Examiners, fully insured, and background-checked. Working with a licensed and insured plumber protects your home and guarantees the work meets Texas plumbing code. Our license number and proof of insurance are always available on request.">
+              Read more <i class="ph ph-arrow-right"></i>
+            </button>
           </div>
         </div>
       </div>
@@ -1115,5 +1206,54 @@
       </div>
     </div>
   </footer>
+
+  <!-- award modal -->
+  <div class="modal-backdrop" id="awardModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="awardModalTitle">
+      <button type="button" class="modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
+      <div class="modal-badge"><img id="awardModalBadge" src="" alt=""></div>
+      <h3 id="awardModalTitle"></h3>
+      <p id="awardModalBody"></p>
+      <a href="tel:6822142405" class="btn btn-pink modal-cta"><i class="ph-fill ph-phone-call" style="font-size:20px"></i>682.214.2405</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var backdrop = document.getElementById('awardModal');
+      var badge = document.getElementById('awardModalBadge');
+      var titleEl = document.getElementById('awardModalTitle');
+      var bodyEl = document.getElementById('awardModalBody');
+      var closeBtn = backdrop.querySelector('.modal-close');
+      var lastFocused = null;
+
+      function openModal(btn) {
+        lastFocused = btn;
+        badge.src = btn.getAttribute('data-badge') || '';
+        badge.alt = btn.getAttribute('data-title') || '';
+        titleEl.innerHTML = btn.getAttribute('data-title') || '';
+        bodyEl.textContent = btn.getAttribute('data-body') || '';
+        backdrop.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+        document.addEventListener('keydown', onKey);
+      }
+      function closeModal() {
+        backdrop.hidden = true;
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+        if (lastFocused) lastFocused.focus();
+      }
+      function onKey(e) { if (e.key === 'Escape') closeModal(); }
+
+      document.querySelectorAll('.award-more').forEach(function (btn) {
+        btn.addEventListener('click', function () { openModal(btn); });
+      });
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', function (e) {
+        if (e.target === backdrop) closeModal();
+      });
+    })();
+  </script>
 </body>
 </html>
