@@ -43,7 +43,7 @@
     body {
       margin: 0;
       font-family: var(--font);
-      font-size: 15px;
+      font-size: 19.3px;
       line-height: 1.55;
       color: var(--ink);
       background: #ffffff;
@@ -103,9 +103,9 @@
       transition: background-color .15s ease, color .15s ease, box-shadow .15s ease, transform .15s ease;
     }
     .btn:active { transform: translateY(1px); }
-    .btn-pink { background: var(--pink); color: #fff; padding: 16px 28px; font-size: 17px; }
+    .btn-pink { background: var(--pink); color: #fff; padding: 16px 28px; font-size: 21.9px; }
     .btn-pink:hover { background: var(--pink-hover); }
-    .btn-white { background: #fff; color: var(--pink); padding: 16px 28px; font-size: 18px; font-weight: 700; }
+    .btn-white { background: #fff; color: var(--pink); padding: 16px 28px; font-size: 23.1px; font-weight: 700; }
     .btn-white:hover { background: #ffe3ec; }
 
     /* ---- utility bar ---- */
@@ -117,7 +117,7 @@
       padding: 9px var(--gutter);
       background: var(--pink);
       color: #fff;
-      font-size: 12.5px;
+      font-size: 16.1px;
       letter-spacing: .04em;
     }
     .utilbar .left { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
@@ -143,7 +143,7 @@
     .brand { display: flex; align-items: center; gap: 22px; }
     .brand img { height: 26px; width: auto; }
     .brand .region {
-      font-size: 12px;
+      font-size: 15.4px;
       letter-spacing: .14em;
       text-transform: uppercase;
       color: #a7a4d8;
@@ -154,18 +154,18 @@
       gap: 8px;
       text-decoration: none;
       color: #fff;
-      font-size: 16px;
+      font-size: 20.6px;
       font-weight: 600;
       transition: color .15s ease;
     }
-    .header-phone i { font-size: 18px; color: var(--pink-soft); }
+    .header-phone i { font-size: 23.1px; color: var(--pink-soft); }
     .header-phone:hover { color: var(--pink-soft); }
 
     /* ---- section base ---- */
     section { position: relative; }
     .pad { padding-top: 52px; padding-bottom: 52px; }
     .kicker {
-      font-size: 12.5px;
+      font-size: 16.1px;
       font-weight: 700;
       letter-spacing: .16em;
       text-transform: uppercase;
@@ -178,7 +178,7 @@
       overflow: hidden;
       background: var(--navy);
       color: #fff;
-      padding: 60px 0 56px;
+      padding: 78px 0 72px;
     }
     .hero .blob {
     position: absolute;
@@ -196,25 +196,25 @@
       gap: 48px;
       align-items: center;
     }
-    .hero-copy { display: flex; flex-direction: column; gap: 22px; }
+    .hero-copy { display: flex; flex-direction: column; gap: 18px; }
     .hero-badge {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       align-self: flex-start;
       max-width: 100%;
       background: #fff;
       color: var(--navy);
-      font-size: 12.5px;
+      font-size: 16px;
       font-weight: 700;
-      letter-spacing: .1em;
+      letter-spacing: 1.6px;
       text-transform: uppercase;
-      padding: 7px 14px;
+      padding: 8px 18px;
       border-radius: 999px;
     }
     .hero h1 {
-      font-size: clamp(40px, 7vw, 66px);
-      line-height: 1.08;
+      font-size: clamp(40px, 5.5vw, 59px);
+      line-height: 1.28;
       letter-spacing: -0.03em;
       text-wrap: pretty;
     }
@@ -226,8 +226,9 @@
       background: var(--pink);
     }
     .hero p {
-      max-width: 30em;
-      font-size: 16px;
+      max-width: 28em;
+      font-size: 20.5px;
+      line-height: 1.55;
       color: var(--lavender);
     }
     .hero-rating {
@@ -254,18 +255,19 @@
       align-self: center;
       background: #fff;
       color: var(--ink);
-      border-radius: var(--radius-lg);
-      padding: 28px;
-      box-shadow: 0 24px 60px rgba(10, 8, 40, .35);
+      border-radius: 23px;
+      padding: 36px;
+      box-shadow: 0 31px 39px rgba(10, 8, 40, .35);
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 22px;
     }
+    .call-panel .btn-pink { font-size: 21.9px; padding: 20px 26px; }
     .call-panel .status { display: flex; align-items: center; gap: 9px; }
     .call-panel .status .dot span { background: #16a34a; }
-    .call-panel .status strong { font-size: 14px; letter-spacing: .02em; }
+    .call-panel .status strong { font-size: 18px; letter-spacing: .02em; }
     .call-panel .label {
-      font-size: 13px;
+      font-size: 16.7px;
       font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
@@ -274,17 +276,17 @@
     .call-panel .number {
       text-decoration: none;
       color: var(--ink);
-      font-size: clamp(34px, 6vw, 42px);
+      font-size: clamp(38px, 5.6vw, 54px);
       font-weight: 700;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.023em;
       line-height: 1.05;
       transition: color .15s ease;
     }
     .call-panel .number:hover { color: var(--pink); }
-    .call-panel .desc { font-size: 14.5px; color: var(--ink-soft); }
+    .call-panel .desc { font-size: 18.6px; line-height: 1.55; color: var(--ink-soft); }
     .call-panel .tagline {
       color: var(--pink);
-      font-size: 17px;
+      font-size: 21.9px;
       font-weight: 600;
       text-align: center;
     }
@@ -294,7 +296,7 @@
     .process { background: #fff; }
     .process .wrap { display: flex; flex-direction: column; gap: 30px; }
     .section-title-c {
-      font-size: clamp(26px, 4vw, 36px);
+      font-size: clamp(33.4px, 4vw, 46.3px);
       line-height: 1.1;
       text-align: center;
     }
@@ -318,11 +320,11 @@
       width: 30px;
       height: 30px;
       border-radius: 999px;
-      font-size: 15px;
+      font-size: 19.3px;
       font-weight: 700;
     }
-    .step strong { font-size: 18px; font-weight: 600; }
-    .step span { font-size: 14px; }
+    .step strong { font-size: 23.1px; font-weight: 600; }
+    .step span { font-size: 18px; }
     .step-1 { background: var(--navy); }
     .step-1 .num { background: var(--pink-soft); color: var(--navy); }
     .step-1 span { color: var(--lavender); }
@@ -370,7 +372,7 @@
     .fleet strong {
       font-family: var(--font);
       font-weight: 600;
-      font-size: clamp(24px, 4vw, 34px);
+      font-size: clamp(30.9px, 4vw, 43.7px);
       line-height: 1.12;
       letter-spacing: -0.025em;
       color: #fff;
@@ -380,8 +382,8 @@
     /* ---- services ---- */
     .services { background: var(--tint); }
     .services .wrap { display: flex; flex-direction: column; gap: 26px; }
-    .services h2 { font-size: clamp(26px, 4vw, 34px); }
-    .services .sub { font-size: 16px; color: var(--muted); margin-top: 8px; }
+    .services h2 { font-size: clamp(33.4px, 4vw, 43.7px); }
+    .services .sub { font-size: 20.6px; color: var(--muted); margin-top: 8px; }
     .svc-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -397,8 +399,8 @@
       transition: box-shadow .15s ease, transform .15s ease;
     }
     .svc:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
-    .svc i { font-size: 26px; color: var(--blue); }
-    .svc strong { font-size: 16.5px; font-weight: 600; }
+    .svc i { font-size: 33.4px; color: var(--blue); }
+    .svc strong { font-size: 21.2px; font-weight: 600; }
 
     /* ---- accuracy / stat band ---- */
     .accuracy {
@@ -411,8 +413,8 @@
       gap: 44px;
       align-items: center;
     }
-    .accuracy h2 { font-size: clamp(28px, 4.4vw, 38px); line-height: 1.08; }
-    .accuracy p { font-size: 16.5px; color: #ffe3ec; max-width: 28em; margin-top: 16px; }
+    .accuracy h2 { font-size: clamp(36px, 4.4vw, 48.9px); line-height: 1.08; }
+    .accuracy p { font-size: 21.2px; color: #ffe3ec; max-width: 28em; margin-top: 16px; }
     .accuracy .btn-white { margin-top: 16px; align-self: flex-start; }
     .accuracy .media { display: flex; flex-direction: column; gap: 14px; }
     .accuracy .photo {
@@ -431,8 +433,8 @@
       flex-direction: column;
       gap: 4px;
     }
-    .stat strong { font-size: 30px; font-weight: 600; }
-    .stat span { font-size: 13.5px; color: var(--lavender); }
+    .stat strong { font-size: 38.6px; font-weight: 600; }
+    .stat span { font-size: 17.4px; color: var(--lavender); }
 
     /* ---- warning signs ---- */
     .signs {
@@ -458,7 +460,7 @@
       text-align: center;
       gap: 32px;
     }
-    .signs h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .signs h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; }
     .signs h2 .hl { color: var(--pink-soft); }
     .signs-grid {
       display: grid;
@@ -483,14 +485,14 @@
       background: var(--pink);
       flex: none;
     }
-    .sign .ico i { font-size: 21px; color: #fff; }
-    .sign strong { font-size: 17.5px; font-weight: 600; }
-    .sign span { font-size: 14.5px; color: #cfcdf0; }
+    .sign .ico i { font-size: 27px; color: #fff; }
+    .sign strong { font-size: 22.5px; font-weight: 600; }
+    .sign span { font-size: 18.6px; color: #cfcdf0; }
 
     /* ---- on the job ---- */
     .onjob { background: #fff; }
     .onjob .wrap { display: flex; flex-direction: column; gap: 26px; }
-    .onjob h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; text-align: center; }
+    .onjob h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; text-align: center; }
     .photos {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -513,16 +515,16 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .reviews h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .reviews h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; }
     .reviews h2 .hl { color: var(--pink); }
     .reviews .rating {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 14px;
+      font-size: 18px;
       color: var(--muted);
     }
-    .reviews .rating i { font-size: 20px; color: var(--blue); }
+    .reviews .rating i { font-size: 25.7px; color: var(--blue); }
     .review-track {
       display: flex;
       gap: 16px;
@@ -550,7 +552,7 @@
       border-radius: 999px;
       background: var(--pink);
       color: #fff;
-      font-size: 17px;
+      font-size: 21.9px;
       font-weight: 700;
       display: flex;
       align-items: center;
@@ -558,19 +560,19 @@
       flex: none;
     }
     .review .whometa { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-    .review .whometa strong { font-size: 15.5px; font-weight: 600; }
-    .review .whometa .date { font-size: 12px; color: #8f8cc4; }
-    .review .who .brand { margin-left: auto; font-size: 20px; color: #fff; }
-    .review .stars { display: flex; gap: 2px; color: #ffb703; font-size: 14px; }
-    .review p { font-size: 14.5px; color: var(--lavender); }
-    .review .meta { margin-top: auto; font-size: 12px; color: #8f8cc4; }
-    .review .readmore { font-weight: 700; font-size: 13.5px; color: var(--pink-soft); text-decoration: none; }
+    .review .whometa strong { font-size: 19.9px; font-weight: 600; }
+    .review .whometa .date { font-size: 15.4px; color: #8f8cc4; }
+    .review .who .brand { margin-left: auto; font-size: 25.7px; color: #fff; }
+    .review .stars { display: flex; gap: 2px; color: #ffb703; font-size: 18px; }
+    .review p { font-size: 18.6px; color: var(--lavender); }
+    .review .meta { margin-top: auto; font-size: 15.4px; color: #8f8cc4; }
+    .review .readmore { font-weight: 700; font-size: 17.4px; color: var(--pink-soft); text-decoration: none; }
     .review .readmore:hover { text-decoration: underline; }
 
     /* ---- awards ---- */
     .awards { background: #fff; }
     .awards .wrap { display: flex; flex-direction: column; gap: 28px; }
-    .awards h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .awards h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; }
     .awards h2 .hl { color: var(--pink); }
     .award-grid {
       display: grid;
@@ -596,9 +598,9 @@
     }
     .award.light .badge { background: var(--tint); color: var(--pink); }
     .award.dark .badge { background: #241a52; color: var(--pink-soft); }
-    .award .badge i { font-size: 40px; }
-    .award strong { font-size: 19px; font-weight: 600; }
-    .award .light-desc { font-size: 14.5px; color: var(--ink-soft); }
+    .award .badge i { font-size: 51.4px; }
+    .award strong { font-size: 24.4px; font-weight: 600; }
+    .award .light-desc { font-size: 18.6px; color: var(--ink-soft); }
     .award.dark .light-desc { color: var(--lavender); }
 
     /* ---- service areas ---- */
@@ -621,16 +623,16 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .areas h2 { font-size: clamp(26px, 4vw, 34px); line-height: 1.1; }
+    .areas h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; }
     .areas h2 .hl { color: var(--pink); }
     .areas .note {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 14.5px;
+      font-size: 18.6px;
       color: var(--ink-soft);
     }
-    .areas .note i { font-size: 18px; color: var(--pink); }
+    .areas .note i { font-size: 23.1px; color: var(--pink); }
     .map {
       border-radius: 16px;
       overflow: hidden;
@@ -644,7 +646,7 @@
       border: 1px solid #e0e3f4;
       border-radius: 999px;
       padding: 9px 16px;
-      font-size: 14.5px;
+      font-size: 18.6px;
       font-weight: 600;
       color: var(--navy);
       white-space: nowrap;
@@ -655,7 +657,7 @@
     .site-footer {
       background: var(--navy);
       color: #d9daf2;
-      font-size: 14px;
+      font-size: 18px;
     }
     .site-footer .wrap { padding-top: 56px; padding-bottom: 40px; }
     .footer-main {
@@ -680,9 +682,9 @@
       text-decoration: none;
       transition: background-color .15s ease;
     }
-    .socials a i { font-size: 21px; }
+    .socials a i { font-size: 27px; }
     .socials a:hover { background: var(--pink-hover); }
-    .footer-phone { color: #fff; text-decoration: none; font-weight: 600; font-size: 15px; }
+    .footer-phone { color: #fff; text-decoration: none; font-weight: 600; font-size: 19.3px; }
     .footer-phone:hover { color: var(--pink-soft); }
     .footer-brand address { font-style: normal; color: #d9daf2; }
     .footer-license {
@@ -704,7 +706,7 @@
       margin-top: 40px;
       padding-top: 24px;
       border-top: 1px solid rgba(255,255,255,.14);
-      font-size: 13.5px;
+      font-size: 17.4px;
     }
     .footer-bottom nav { display: flex; gap: 40px; flex-wrap: wrap; }
     .footer-bottom a { color: #d9daf2; text-decoration: none; }
@@ -805,7 +807,7 @@
             <span class="desc">Get the facts before you commit to sewer line repair. Call and talk it through with a plumber who can put a camera on your line.</span>
             <span class="tagline">See what lurks in pipes before it surprises you.</span>
           </div>
-          <a href="tel:6822142405" class="btn btn-pink"><i class="ph-fill ph-phone-call" style="font-size:20px"></i>Call now</a>
+          <a href="tel:6822142405" class="btn btn-pink"><i class="ph-fill ph-phone-call" style="font-size:25.7px"></i>Call now</a>
         </div>
       </div>
     </section>
@@ -899,7 +901,7 @@
         <div>
           <h2>DFW's most accurate plumbing camera inspection.</h2>
           <p>Our licensed sewer plumbers are trained and certified on the latest state-of-the-art camera equipment to diagnose your underground plumbing issue with precision and accuracy. No unnecessary digging, no mess, no stress.</p>
-          <a href="tel:6822142405" class="btn btn-white"><i class="ph-fill ph-phone-call" style="font-size:21px"></i>682.214.2405</a>
+          <a href="tel:6822142405" class="btn btn-white"><i class="ph-fill ph-phone-call" style="font-size:27px"></i>682.214.2405</a>
         </div>
         <div class="media">
           <div class="photo">
@@ -962,7 +964,7 @@
             <span>Insurance and warranty claims often require proof of the pipe's condition. We record the footage and give you the report.</span>
           </div>
         </div>
-        <a href="tel:6822142405" class="btn btn-white" style="font-size:16px"><i class="ph-fill ph-phone-call" style="font-size:19px"></i>682.214.2405</a>
+        <a href="tel:6822142405" class="btn btn-white" style="font-size:20.6px"><i class="ph-fill ph-phone-call" style="font-size:24.4px"></i>682.214.2405</a>
       </div>
     </section>
 
