@@ -589,16 +589,12 @@
     .award.light { background: #f8f9fe; border: 1px solid #e6e8f6; }
     .award.dark { background: var(--navy); color: #fff; }
     .award .badge {
-      width: 84px;
-      height: 84px;
-      border-radius: 10px;
+      height: 90px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
     }
-    .award.light .badge { background: var(--tint); color: var(--pink); }
-    .award.dark .badge { background: #241a52; color: var(--pink-soft); }
-    .award .badge i { font-size: 51.4px; }
+    .award .badge img { height: 100%; width: auto; }
     .award strong { font-size: 24.4px; font-weight: 600; }
     .award .light-desc { font-size: 18.6px; color: var(--ink-soft); }
     .award.dark .light-desc { color: var(--lavender); }
@@ -818,17 +814,17 @@
         <h2>Our plumbers are the best.<br><span class="hl">Don't just take our word for it.</span></h2>
         <div class="award-grid">
           <div class="award light">
-            <div class="badge"><i class="ph-fill ph-trophy"></i></div>
+            <div class="badge"><img src="assets/award-dfw-winner.svg" alt="DFW Favorites 2026 winner badge"></div>
             <strong>Best Plumbing Company, Fort Worth Star-Telegram</strong>
             <span class="light-desc">An independent reader's choice award. Earned by our customers, not paid for.</span>
           </div>
           <div class="award dark">
-            <div class="badge"><i class="ph-fill ph-seal-check"></i></div>
+            <div class="badge"><img src="assets/award-good-contractors.svg" alt="The Good Contractors List member badge"></div>
             <strong>Good Contractor List Member · $25,000 guarantee</strong>
             <span class="light-desc">Fully vetted and approved. Every job is backed by a $25,000 member guarantee.</span>
           </div>
           <div class="award light">
-            <div class="badge"><i class="ph-fill ph-shield-check"></i></div>
+            <div class="badge"><img src="assets/award-texas-plumber.svg" alt="Texas State Board of Plumbing Examiners licensed seal"></div>
             <strong>Licensed &amp; Insured · State of Texas</strong>
             <span class="light-desc">All technicians are licensed, background-checked and insured.</span>
           </div>
