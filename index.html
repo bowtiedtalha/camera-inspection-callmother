@@ -449,10 +449,10 @@
     }
     .signs .blob {
       position: absolute;
-      top: -120px;
-      right: -80px;
-      width: 520px;
-      height: 520px;
+      top: -154px;
+      right: -102px;
+      width: 668.571px;
+      height: 668.571px;
       border-radius: 999px;
       background: #6d1c56;
       opacity: .55;
@@ -463,29 +463,32 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 32px;
+      gap: 40px;
     }
     .signs h2 { font-size: clamp(33.4px, 4vw, 43.7px); line-height: 1.1; }
     .signs h2 .hl { color: var(--pink-soft); }
     .signs-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 30px 26px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px 33px;
       width: 100%;
     }
     .sign {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       min-width: 0;
+      flex: 0 1 calc((100% - 66px) / 3);
+      max-width: calc((100% - 66px) / 3);
     }
     .sign .ico {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px;
-      height: 44px;
+      width: 56.571px;
+      height: 56.571px;
       border-radius: 999px;
       background: var(--pink);
       flex: none;
@@ -799,7 +802,7 @@
       .photos { grid-template-columns: 1fr; }
       .photos .frame { height: 260px; }
       .award-grid { grid-template-columns: 1fr; }
-      .signs-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .signs .sign { flex-basis: calc((100% - 33px) / 2); max-width: calc((100% - 33px) / 2); }
       .footer-main { gap: 28px; }
       .footer-license { text-align: left; }
     }
@@ -814,7 +817,7 @@
       .steps { grid-template-columns: 1fr; }
       .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .signs-grid { grid-template-columns: 1fr; }
+      .signs .sign { flex-basis: 100%; max-width: 100%; }
       .hero .blob { width: 360px; height: 360px; top: -150px; right: -150px; }
       .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
       .review { flex: 0 0 82vw; }
