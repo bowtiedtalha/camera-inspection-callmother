@@ -963,16 +963,19 @@
     @media (max-width: 640px) {
       :root { --gutter: 20px; }
       .pad { padding-top: 40px; padding-bottom: 40px; }
-      .utilbar .wrap { flex-direction: column; align-items: flex-start; gap: 6px; }
-      .utilbar .dim { display: none; }
-      .brand { gap: 12px; }
-      .brand .region { display: none; }
+      .utilbar { font-size: 11px; letter-spacing: .02em; }
+      .utilbar .wrap { flex-direction: column; align-items: center; text-align: center; gap: 3px; }
+      .utilbar .left { justify-content: center; }
+      .brand { flex-direction: column; align-items: flex-start; gap: 4px; }
+      .brand .region { display: block; font-size: 11px; letter-spacing: .08em; white-space: nowrap; }
       .steps { grid-template-columns: 1fr; }
       .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .signs .sign { flex-basis: 100%; max-width: 100%; }
-      .hero .blob { width: 360px; height: 360px; top: -150px; right: -150px; }
-      .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
+      .hero { padding-top: 36px; padding-bottom: 48px; }
+      .hero h1 { line-height: 1.14; }
+      .hero .blob { width: 440px; height: 560px; top: 470px; right: -110px; }
+      .hero-badge { font-size: 10px; letter-spacing: .04em; padding: 7px 13px; gap: 7px; }
       .reviews .review { width: 82vw; height: auto; min-height: 360px; padding: 24px; }
       .rev-arrow { display: none; }
       #dfwMap { height: 420px; }
@@ -987,10 +990,8 @@
       <div class="left">
         <span class="dot"><span class="pulse"></span><span class="ring"></span></span>
         <span style="font-weight:600">Camera inspection crews on the road</span>
-        <span class="sep">·</span>
-        <span class="dim">Serving all of DFW</span>
       </div>
-      <span class="dim">24/7 support, every hour of every day</span>
+      <span class="dim ub-meta">Serving all of DFW <span class="sep">·</span> 24/7 support, every hour of every day</span>
     </div>
   </div>
 
