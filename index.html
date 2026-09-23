@@ -551,6 +551,7 @@
       display: flex;
       flex-direction: column;
       color: #fff;
+      overflow: hidden;
     }
     .review .rev-top {
       display: flex;
@@ -606,7 +607,16 @@
       -webkit-line-clamp: 4;
       overflow: hidden;
     }
-    .review.is-open .rev-text { -webkit-line-clamp: unset; overflow: visible; }
+    .review.is-open .rev-text {
+      -webkit-line-clamp: unset;
+      flex: 1 1 auto;
+      min-height: 0;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding-right: 8px;
+    }
+    .review.is-open .rev-text::-webkit-scrollbar { width: 6px; }
+    .review.is-open .rev-text::-webkit-scrollbar-thumb { background: #3b3780; border-radius: 3px; }
     .review .rev-more {
       align-self: flex-start;
       margin-top: 8px;
