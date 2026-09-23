@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 
   <style>
     :root {
@@ -809,6 +810,63 @@
       background: var(--tint);
     }
     .map img { width: 100%; height: auto; }
+    /* live map */
+    #dfwMap {
+      height: 560px;
+      width: 100%;
+      background: #eef0fa;
+      z-index: 0;
+    }
+    #dfwMap .leaflet-tile-pane {
+      /* nudge the muted grey tiles toward the brand's cool violet */
+      filter: saturate(1.05) hue-rotate(-12deg) brightness(1.02);
+    }
+    .leaflet-container { font: inherit; }
+    /* pink city pin */
+    .dfw-pin {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background: var(--pink);
+      border: 2px solid #fff;
+      box-shadow: 0 2px 6px rgba(20,18,63,.35);
+      transition: transform .15s ease;
+    }
+    .dfw-pin:hover { transform: scale(1.25); }
+    .dfw-pin.major {
+      width: 22px;
+      height: 22px;
+      background: var(--navy);
+      border-width: 4px;
+    }
+    /* popup card */
+    .leaflet-popup-content-wrapper {
+      border-radius: 14px;
+      box-shadow: 0 14px 34px rgba(20,18,63,.22);
+      padding: 4px;
+    }
+    .leaflet-popup-content { margin: 14px 16px; }
+    .leaflet-popup-tip { box-shadow: 0 14px 34px rgba(20,18,63,.22); }
+    .map-pop { display: flex; flex-direction: column; gap: 4px; min-width: 190px; }
+    .map-pop strong { font-size: 18px; color: var(--navy); font-weight: 700; }
+    .map-pop span { font-size: 14px; color: var(--muted); }
+    .map-pop-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      margin-top: 10px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: var(--pink);
+      color: #fff !important;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: background .2s ease;
+    }
+    .map-pop-btn:hover { background: var(--pink-hover); }
+    .map-pop-btn i { font-size: 17px; }
     .pills { display: flex; flex-wrap: wrap; gap: 10px; }
     .pill {
       background: #fff;
@@ -914,6 +972,7 @@
       .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
       .reviews .review { width: 82vw; height: auto; min-height: 360px; padding: 24px; }
       .rev-arrow { display: none; }
+      #dfwMap { height: 420px; }
     }
   </style>
 </head>
@@ -1284,9 +1343,7 @@ with your plumber and see exactly what we see.</p>
           <h2>We provide sewer camera inspection <span class="hl">across DFW.</span></h2>
           <span class="note"><i class="ph-fill ph-map-pin"></i>Camera inspection across the metroplex</span>
         </div>
-        <div class="map">
-          <img src="assets/dfw-service-area-v2.png" alt="Schematic map of Mother's service area across the Dallas–Fort Worth metroplex">
-        </div>
+        <div class="map"><div id="dfwMap" role="img" aria-label="Interactive map of Mother Modern Plumbing's service area across the Dallas–Fort Worth metroplex"></div></div>
         <div class="pills">
           <span class="pill">Dallas</span>
           <span class="pill">Fort Worth</span>
@@ -1394,6 +1451,67 @@ with your plumber and see exactly what we see.</p>
       backdrop.addEventListener('click', function (e) {
         if (e.target === backdrop) closeModal();
       });
+    })();
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    (function () {
+      var mapEl = document.getElementById('dfwMap');
+      if (!mapEl || typeof L === 'undefined') return;
+
+      var cities = [
+        { name: 'Dallas', lat: 32.7767, lng: -96.7970, major: true },
+        { name: 'Fort Worth', lat: 32.7555, lng: -97.3308, major: true },
+        { name: 'McKinney', lat: 33.1972, lng: -96.6398 },
+        { name: 'Frisco', lat: 33.1507, lng: -96.8236 },
+        { name: 'Allen', lat: 33.1032, lng: -96.6706 },
+        { name: 'Plano', lat: 33.0198, lng: -96.6989 },
+        { name: 'Corinth', lat: 33.1540, lng: -97.0647 },
+        { name: 'Coppell', lat: 32.9546, lng: -96.9900 },
+        { name: 'Southlake', lat: 32.9412, lng: -97.1342 },
+        { name: 'Grapevine', lat: 32.9343, lng: -97.0781 },
+        { name: 'Carrollton', lat: 32.9537, lng: -96.8903 },
+        { name: 'Richardson', lat: 32.9483, lng: -96.7299 },
+        { name: 'Garland', lat: 32.9126, lng: -96.6389 },
+        { name: 'Highland Park', lat: 32.8296, lng: -96.8022 },
+        { name: 'Irving', lat: 32.8140, lng: -96.9489 },
+        { name: 'Arlington', lat: 32.7357, lng: -97.1081 }
+      ];
+
+      var map = L.map(mapEl, { scrollWheelZoom: false, zoomControl: true, attributionControl: true });
+
+      // Esri Light Gray Canvas — free, no API key, muted styling
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles &copy; Esri',
+        maxZoom: 16
+      }).addTo(map);
+      // faint place/road labels on top
+      L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Reference/MapServer/tile/{z}/{y}/{x}', {
+        maxZoom: 16, opacity: 0.9
+      }).addTo(map);
+
+      var bounds = [];
+      cities.forEach(function (c) {
+        var icon = L.divIcon({
+          className: '',
+          html: '<div class="dfw-pin' + (c.major ? ' major' : '') + '"></div>',
+          iconSize: c.major ? [22, 22] : [16, 16],
+          iconAnchor: c.major ? [11, 11] : [8, 8]
+        });
+        var m = L.marker([c.lat, c.lng], { icon: icon, title: c.name, riseOnHover: true }).addTo(map);
+        m.bindPopup(
+          '<div class="map-pop">' +
+            '<strong>' + c.name + '</strong>' +
+            '<span>Same-day sewer camera inspection</span>' +
+            '<a class="map-pop-btn" href="tel:6822142405"><i class="ph-fill ph-phone-call"></i>Call 682.214.2405</a>' +
+          '</div>'
+        );
+        bounds.push([c.lat, c.lng]);
+      });
+
+      map.fitBounds(bounds, { padding: [50, 50] });
+      // re-measure once layout settles (map lives in a section that may lazy-size)
+      setTimeout(function () { map.invalidateSize(); map.fitBounds(bounds, { padding: [50, 50] }); }, 300);
     })();
   </script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
