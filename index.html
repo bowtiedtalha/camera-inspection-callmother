@@ -534,67 +534,126 @@
       color: var(--muted);
     }
     .reviews .rating i { font-size: 25.7px; color: var(--blue); }
+    /* full-width carousel (Apple-store style) */
+    .reviews-carousel { position: relative; width: 100%; margin-top: 40px; }
     .reviews-swiper {
-      margin-top: 26px;
       width: 100%;
       overflow: hidden;
-      padding: 4px 0 14px;
+      padding: 6px 0;
     }
     .reviews-swiper .swiper-wrapper { align-items: stretch; }
     .review {
-      width: 330px;
-      height: auto;
-      background: #1b1857;
-      border-radius: 16px;
-      padding: 22px;
+      width: 384px;
+      height: 428px;
+      background: #17144d;
+      border-radius: 22px;
+      padding: 30px 32px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
       color: #fff;
     }
-    .reviews-pagination {
+    .review .rev-top {
       display: flex;
-      justify-content: center;
       align-items: center;
-      gap: 8px;
-      margin-top: 26px;
+      justify-content: space-between;
+      gap: 12px;
     }
-    .reviews-pagination .swiper-pagination-bullet {
-      width: 9px;
-      height: 9px;
-      margin: 0 !important;
-      border-radius: 999px;
-      background: var(--lavender);
-      opacity: 1;
-      transition: width .25s ease, background .25s ease;
+    .review .rev-rate { display: inline-flex; align-items: center; gap: 10px; }
+    .review .rev-src { display: inline-flex; align-items: center; }
+    .review .rev-src svg { display: block; }
+    .review .rev-src-yelp {
+      background: #d32323;
+      color: #fff;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 1;
+      padding: 5px 7px;
+      border-radius: 5px;
+      letter-spacing: .2px;
     }
-    .reviews-pagination .swiper-pagination-bullet-active {
-      width: 28px;
-      background: var(--pink);
-    }
-    .review .who { display: flex; align-items: center; gap: 11px; }
-    .review .avatar {
+    .review .rev-stars { display: inline-flex; gap: 2px; color: #ffb703; font-size: 17px; }
+    .review .rev-avatar {
       width: 40px;
       height: 40px;
       border-radius: 999px;
       background: var(--pink);
       color: #fff;
-      font-size: 21.9px;
+      font-size: 18px;
       font-weight: 700;
       display: flex;
       align-items: center;
       justify-content: center;
       flex: none;
+      overflow: hidden;
     }
-    .review .whometa { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
-    .review .whometa strong { font-size: 19.9px; font-weight: 600; }
-    .review .whometa .date { font-size: 15.4px; color: #8f8cc4; }
-    .review .who .brand { margin-left: auto; font-size: 25.7px; color: #fff; }
-    .review .stars { display: flex; gap: 2px; color: #ffb703; font-size: 18px; }
-    .review p { font-size: 18.6px; color: var(--lavender); }
-    .review .meta { margin-top: auto; font-size: 15.4px; color: #8f8cc4; }
-    .review .readmore { font-weight: 700; font-size: 17.4px; color: var(--pink-soft); text-decoration: none; }
-    .review .readmore:hover { text-decoration: underline; }
+    .review .rev-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .review .rev-quote { font-size: 34px; color: #3b3780; margin-top: 16px; line-height: 1; }
+    .review .rev-name { font-size: 21px; font-weight: 600; margin-top: 14px; }
+    .review .rev-role {
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8f8cc4;
+      margin-top: 5px;
+    }
+    .review .rev-text {
+      font-size: 17px;
+      line-height: 1.55;
+      color: #d9daf2;
+      margin-top: 16px;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      overflow: hidden;
+    }
+    .review.is-open .rev-text { -webkit-line-clamp: unset; overflow: visible; }
+    .review .rev-more {
+      align-self: flex-start;
+      margin-top: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      font: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      color: #fff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .review .rev-date {
+      margin-top: auto;
+      padding-top: 18px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: #8f8cc4;
+    }
+    /* circular arrows */
+    .rev-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 6;
+      width: 56px;
+      height: 56px;
+      border-radius: 999px;
+      border: none;
+      background: var(--pink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(20, 18, 63, .18);
+      transition: background .2s ease, opacity .2s ease;
+    }
+    .rev-arrow i { font-size: 24px; }
+    .rev-arrow:hover { background: var(--pink-hover); }
+    .rev-prev { left: 16px; }
+    .rev-next { right: 16px; }
+    .rev-arrow.swiper-button-disabled { opacity: .3; cursor: default; }
+    .rev-arrow.swiper-button-lock { display: none; }
 
     /* ---- awards ---- */
     .awards { background: #fff; }
@@ -839,7 +898,8 @@
       .signs .sign { flex-basis: 100%; max-width: 100%; }
       .hero .blob { width: 360px; height: 360px; top: -150px; right: -150px; }
       .hero-badge { font-size: 11px; letter-spacing: .06em; padding: 6px 12px; }
-      .reviews .review { width: 82vw; }
+      .reviews .review { width: 82vw; height: auto; min-height: 360px; padding: 24px; }
+      .rev-arrow { display: none; }
     }
   </style>
 </head>
@@ -1100,67 +1160,78 @@ with your plumber and see exactly what we see.</p>
           <h2><span class="hl">Read our sewer camera inspection reviews</span><br>from DFW homeowners.</h2>
           <span class="rating"><i class="ph-fill ph-google-logo"></i>5.0 average · 1130 Google reviews</span>
         </div>
+      </div>
+      <div class="reviews-carousel">
         <div class="reviews-swiper swiper">
           <div class="swiper-wrapper">
-          <article class="review swiper-slide">
-            <div class="who">
-              <div class="avatar">M</div>
-              <div class="whometa">
-                <strong>Masey Jordan</strong>
-                <span class="date">Sep 10, 2026</span>
+
+            <article class="review swiper-slide">
+              <div class="rev-top">
+                <div class="rev-rate">
+                  <div class="rev-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                </div>
+                <span class="rev-avatar">R</span>
               </div>
-              <i class="ph-fill ph-google-logo brand"></i>
-            </div>
-            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
-            <p>Joe and Matt Ryckman were thorough, personable, and kind. They did not rush my camera plumbing test, were transparent with what they were seeing along the way, and spent extra…</p>
-            <span class="meta">Fort Worth · Camera Inspection</span>
-            <a href="#" class="readmore">Read more</a>
-          </article>
-          <article class="review swiper-slide">
-            <div class="who">
-              <div class="avatar">J</div>
-              <div class="whometa">
-                <strong>Jamal Abdalla</strong>
-                <span class="date">Sep 3, 2026</span>
+              <i class="ph-fill ph-quotes rev-quote"></i>
+              <div class="rev-name">Rogers Healy</div>
+              <div class="rev-role">Founder, Rogers Healy &amp; Associates Real Estate</div>
+              <p class="rev-text">In the fast-paced world of real estate, partnering with professionals who share our commitment to excellence matters. Mother Modern Plumbing has been exactly that partner for our clients.</p>
+              <button class="rev-more" type="button">Show more</button>
+              <div class="rev-date">February 2025</div>
+            </article>
+
+            <article class="review swiper-slide">
+              <div class="rev-top">
+                <div class="rev-rate">
+                  <span class="rev-src"><span class="rev-src-yelp">Yelp</span></span>
+                  <div class="rev-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                </div>
+                <span class="rev-avatar">J</span>
               </div>
-              <i class="ph-fill ph-google-logo brand"></i>
-            </div>
-            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
-            <p>I own 1968 house with cast iron sewer pipes. One day the toilet clogged, called a plumber, unclogged it, also did a full diagnostic using a drain camera. Told me: rusted, cracked, some pipe shifted — they need…</p>
-            <span class="meta">Fort Worth · Camera Inspection</span>
-            <a href="#" class="readmore">Read more</a>
-          </article>
-          <article class="review swiper-slide">
-            <div class="who">
-              <div class="avatar">C</div>
-              <div class="whometa">
-                <strong>CJ Chris Johnston</strong>
-                <span class="date">May 4, 2026</span>
+              <i class="ph-fill ph-quotes rev-quote"></i>
+              <div class="rev-name">James H.</div>
+              <div class="rev-role">Homeowner moving out</div>
+              <p class="rev-text">Matthew was very responsive and got a plumber to go out and look at an issue I was told needed to be addressed before closing. Quick, honest, and easy to work with.</p>
+              <button class="rev-more" type="button">Show more</button>
+              <div class="rev-date">January 2025</div>
+            </article>
+
+            <article class="review swiper-slide">
+              <div class="rev-top">
+                <div class="rev-rate">
+                  <span class="rev-src"><svg viewBox="0 0 48 48" width="22" height="22" aria-label="Google"><path fill="#4285F4" d="M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z"/><path fill="#34A853" d="M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z"/><path fill="#EA4335" d="M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2 15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z"/></svg></span>
+                  <div class="rev-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                </div>
+                <span class="rev-avatar">S</span>
               </div>
-              <i class="ph-fill ph-google-logo brand"></i>
-            </div>
-            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
-            <p>Jesse Crane was awesome awesome…. arrived early in the service window, I was notified 40 minutes prior and able to track tech to home. Came in, unplugged my line, showed me the issue…</p>
-            <span class="meta">Fort Worth · Camera Inspection</span>
-            <a href="#" class="readmore">Read more</a>
-          </article>
-          <article class="review swiper-slide">
-            <div class="who">
-              <div class="avatar">S</div>
-              <div class="whometa">
-                <strong>Sarah Fandrey</strong>
-                <span class="date">April 4, 2026</span>
+              <i class="ph-fill ph-quotes rev-quote"></i>
+              <div class="rev-name">Sarah Kirkpatrick</div>
+              <div class="rev-role">Mom of 2</div>
+              <p class="rev-text">5 Stars! Highly recommend Mother Modern Plumbing! We recently hired this plumbing company to help with an issue at our home and could not be happier with the service.</p>
+              <button class="rev-more" type="button">Show more</button>
+              <div class="rev-date">January 2025</div>
+            </article>
+
+            <article class="review swiper-slide">
+              <div class="rev-top">
+                <div class="rev-rate">
+                  <span class="rev-src"><svg viewBox="0 0 24 24" width="22" height="22" aria-label="Facebook"><path fill="#1877F2" d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.66 4.53-4.66 1.31 0 2.68.23 2.68.23v2.95h-1.51c-1.49 0-1.95.92-1.95 1.87V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12z"/></svg></span>
+                  <div class="rev-stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
+                </div>
+                <span class="rev-avatar">A</span>
               </div>
-              <i class="ph-fill ph-google-logo brand"></i>
-            </div>
-            <div class="stars"><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i></div>
-            <p>Adam came on a Sunday and got us all set. He's the BEST. Very pleasant and high functioning — zero errors. Was able to call late on a Saturday night and get help immediately…</p>
-            <span class="meta">Fort Worth · Camera Inspection</span>
-            <a href="#" class="readmore">Read more</a>
-          </article>
+              <i class="ph-fill ph-quotes rev-quote"></i>
+              <div class="rev-name">Anali Michael Zack</div>
+              <div class="rev-role">Homeowner</div>
+              <p class="rev-text">We recently used Mother Modern Plumbing for a yard sewer repair and we were very impressed with the whole team. Professional, tidy, and they walked us through everything.</p>
+              <button class="rev-more" type="button">Show more</button>
+              <div class="rev-date">January 2025</div>
+            </article>
+
           </div>
         </div>
-        <div class="reviews-pagination"></div>
+        <button class="rev-arrow rev-prev" type="button" aria-label="Previous reviews"><i class="ph-bold ph-arrow-left"></i></button>
+        <button class="rev-arrow rev-next" type="button" aria-label="Next reviews"><i class="ph-bold ph-arrow-right"></i></button>
       </div>
     </section>
 
@@ -1288,25 +1359,39 @@ with your plumber and see exactly what we see.</p>
   <script>
     (function () {
       if (typeof Swiper === 'undefined') return;
-      var revEl = document.querySelector('.reviews-swiper');
-      var SLIDE_W = 330, GAP = 16;
-      // Keep the last page showing up to 3 full cards (never slice a card on the left).
-      function offsetAfter() {
-        return Math.max(0, revEl.clientWidth - (SLIDE_W * 3 + GAP * 2));
+      // Align the first card to the content margin (like apple.com/store) while the
+      // track runs full-bleed and cards spill off the right edge.
+      function contentLeft() {
+        var gutter = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gutter')) || 72;
+        var side = Math.max((window.innerWidth - 1440) / 2, 0);
+        return Math.round(side + gutter);
       }
       new Swiper('.reviews-swiper', {
         slidesPerView: 'auto',
-        spaceBetween: GAP,
+        spaceBetween: 20,
         loop: false,
         rewind: true,
         grabCursor: true,
-        slidesOffsetAfter: offsetAfter(),
-        autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
-        pagination: { el: '.reviews-pagination', clickable: true },
+        slidesOffsetBefore: contentLeft(),
+        slidesOffsetAfter: 24,
+        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        navigation: { nextEl: '.rev-next', prevEl: '.rev-prev' },
         a11y: { enabled: true },
         on: {
-          resize: function (sw) { sw.params.slidesOffsetAfter = offsetAfter(); sw.update(); }
+          resize: function (sw) { sw.params.slidesOffsetBefore = contentLeft(); sw.update(); }
         }
+      });
+
+      // Show more / less per card (hide the toggle when text isn't clamped).
+      document.querySelectorAll('.review').forEach(function (card) {
+        var text = card.querySelector('.rev-text');
+        var btn = card.querySelector('.rev-more');
+        if (!text || !btn) return;
+        if (text.scrollHeight <= text.clientHeight + 2) { btn.style.display = 'none'; return; }
+        btn.addEventListener('click', function () {
+          var open = card.classList.toggle('is-open');
+          btn.textContent = open ? 'Show less' : 'Show more';
+        });
       });
     })();
   </script>
