@@ -57,6 +57,7 @@
       font-weight: 600;
       letter-spacing: -0.025em;
       margin: 0;
+      line-height:120%;
     }
 
     p { margin: 0; }
@@ -305,7 +306,7 @@
     text-align: center;
 }
     .section-title-c {
-      font-size: clamp(30.06px, 3.6vw, 41.67px);
+      font-size: clamp(24px, 3.6vw, 41.67px);
       line-height: 1.1;
       text-align: center;
     }
@@ -350,7 +351,7 @@
     /* ---- fleet band ---- */
     .fleet {
       position: relative;
-      min-height: 340px;
+      min-height: 450px;
       overflow: hidden;
       background: var(--navy);
       display: flex;
@@ -382,7 +383,7 @@
     .fleet strong {
       font-family: var(--font);
       font-weight: 600;
-      font-size: clamp(27.81px, 3.6vw, 39.33px);
+      font-size: clamp(16px, 3.6vw, 39.33px);
       line-height: 1.12;
       letter-spacing: -0.025em;
       color: #fff;
@@ -392,7 +393,7 @@
     /* ---- services ---- */
     .services { background: var(--tint); }
     .services .wrap { display: flex; flex-direction: column; gap: 26px; }
-    .services h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); }
+    .services h2 { font-size: clamp(24px, 3.6vw, 39.33px); }
     .services .sub { font-size: 18.54px; color: var(--muted); margin-top: 8px; }
     .svc-grid {
       display: grid;
@@ -423,7 +424,7 @@
       gap: 44px;
       align-items: center;
     }
-    .accuracy h2 { font-size: clamp(32.4px, 3.96vw, 44.01px); line-height: 1.08; }
+    .accuracy h2 { font-size: clamp(24px, 3.96vw, 44.01px); line-height: 1.08; }
     .accuracy p { font-size: 19.08px; color: #ffe3ec; max-width: 28em; margin-top: 16px; }
     .accuracy .btn-white { margin-top: 16px; align-self: flex-start; }
     .accuracy .media { display: flex; flex-direction: column; gap: 14px; }
@@ -470,7 +471,7 @@
       text-align: center;
       gap: 40px;
     }
-    .signs h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); line-height: 1.1; }
+    .signs h2 { font-size: clamp(24px, 3.6vw, 39.33px); line-height: 1.1; }
     .signs h2 .hl { color: var(--pink-soft); }
     .signs-grid {
       display: flex;
@@ -505,7 +506,7 @@
     /* ---- on the job ---- */
     .onjob { background: #fff; }
     .onjob .wrap { display: flex; flex-direction: column; gap: 26px; }
-    .onjob h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); line-height: 1.1; text-align: center; }
+    .onjob h2 { font-size: clamp(24px, 3.6vw, 39.33px); line-height: 1.1; text-align: center; }
     .photos {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -528,7 +529,7 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .reviews h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); line-height: 1.1; }
+    .reviews h2 { font-size: clamp(24px, 3.6vw, 39.33px); line-height: 1.1; }
     .reviews h2 .hl { color: var(--pink); }
     .reviews .rating {
       display: inline-flex;
@@ -676,7 +677,7 @@
     /* ---- awards ---- */
     .awards { background: #fff; }
     .awards .wrap { display: flex; flex-direction: column; gap: 28px; }
-    .awards h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); line-height: 1.1; }
+    .awards h2 { font-size: clamp(24px, 3.6vw, 39.33px); line-height: 1.1; }
     .awards h2 .hl { color: var(--pink); }
     .award-grid {
       display: grid;
@@ -796,7 +797,7 @@
       gap: 24px;
       flex-wrap: wrap;
     }
-    .areas h2 { font-size: clamp(30.06px, 3.6vw, 39.33px); line-height: 1.1; }
+    .areas h2 { font-size: clamp(24px, 3.6vw, 39.33px); line-height: 1.1; }
     .areas h2 .hl { color: var(--pink); }
     .areas .note {
       display: inline-flex;
@@ -963,6 +964,9 @@
     @media (max-width: 640px) {
       :root { --gutter: 20px; }
       .pad { padding-top: 40px; padding-bottom: 40px; }
+      .call-panel {padding: 30px 20px}
+      .call-panel .label {letter-spacing: .05em;}
+      .call-panel .tagline {font-size:13px}
       .utilbar { font-size: 9.9px; letter-spacing: .02em; }
       .utilbar .wrap { flex-direction: column; align-items: center; text-align: center; gap: 3px; }
       .utilbar .left { justify-content: center; }
@@ -979,6 +983,9 @@
       .reviews .review { width: 82vw; height: auto; min-height: 360px; padding: 24px; }
       .rev-arrow { display: none; }
       #dfwMap { height: 420px; }
+      .fleet {min-height:auto;}
+      .svc {padding:15px}
+      .svc strong {font-size:16px}
     }
   </style>
 </head>
