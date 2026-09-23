@@ -1288,14 +1288,25 @@ with your plumber and see exactly what we see.</p>
   <script>
     (function () {
       if (typeof Swiper === 'undefined') return;
+      var revEl = document.querySelector('.reviews-swiper');
+      var SLIDE_W = 330, GAP = 16;
+      // Keep the last page showing up to 3 full cards (never slice a card on the left).
+      function offsetAfter() {
+        return Math.max(0, revEl.clientWidth - (SLIDE_W * 3 + GAP * 2));
+      }
       new Swiper('.reviews-swiper', {
         slidesPerView: 'auto',
-        spaceBetween: 16,
-        loop: true,
+        spaceBetween: GAP,
+        loop: false,
+        rewind: true,
         grabCursor: true,
+        slidesOffsetAfter: offsetAfter(),
         autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
         pagination: { el: '.reviews-pagination', clickable: true },
         a11y: { enabled: true },
+        on: {
+          resize: function (sw) { sw.params.slidesOffsetAfter = offsetAfter(); sw.update(); }
+        }
       });
     })();
   </script>
