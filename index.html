@@ -432,11 +432,20 @@
       display: flex;
       flex-direction: column;
       gap: 14px;
+      width: 100%;
+      text-align: left;
+      border: 0;
+      font-family: inherit;
+      color: var(--navy);
+      cursor: pointer;
       transition: box-shadow .15s ease, transform .15s ease;
     }
     .svc:hover { box-shadow: var(--shadow-card); transform: translateY(-2px); }
-    .svc i { font-size: 30.06px; color: var(--blue); }
-    .svc strong { font-size: 19.08px; font-weight: 600; }
+    .svc:focus-visible { outline: 2px solid var(--pink); outline-offset: 2px; }
+    .svc-top { display: flex; align-items: center; justify-content: space-between; }
+    .svc-ico { font-size: 26px; color: var(--blue); }
+    .svc-arrow { font-size: 15px; color: #a7a4d8; }
+    .svc strong { font-size: 16.5px; font-weight: 600; }
 
     /* ---- accuracy / stat band ---- */
     .accuracy {
@@ -801,6 +810,43 @@
       font-size: 19.8px;
     }
     .modal-close:hover { background: #e6e8f6; }
+
+    /* ---- service popup modal ---- */
+    .svc-modal {
+      max-width: 520px;
+      padding: 40px 32px 32px;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+      box-shadow: 0 24px 60px rgba(20, 18, 63, .35);
+    }
+    .svc-modal .modal-close { top: 14px; right: 14px; width: 44px; height: 44px; font-size: 22px; }
+    .svc-modal-head { display: flex; align-items: center; justify-content: center; gap: 12px; }
+    .svc-modal-ico { font-size: 32px; color: var(--blue); }
+    .svc-modal h3 {
+      font-size: 26px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      padding: 0;
+    }
+    .svc-modal p { font-size: 16px; line-height: 1.55; color: var(--ink-soft); margin: 0; }
+    .svc-benefits {
+      list-style: none;
+      margin: 0;
+      padding: 16px 20px;
+      width: 100%;
+      background: var(--tint);
+      border-radius: 12px;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .svc-benefits li { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.45; color: var(--navy); }
+    .svc-benefits li i { font-size: 19px; color: var(--pink); flex: none; margin-top: 1px; }
+    .svc-modal-call { font-family: inherit; font-size: 24px; font-weight: 700; color: var(--pink); text-decoration: none; }
+    .svc-modal-call:hover { color: #c93a6e; }
 
     /* ---- service areas ---- */
     .areas { background: var(--tint); overflow: hidden; }
@@ -1170,15 +1216,15 @@ with your plumber and see exactly what we see.</p>
           <h2>Camera Inspection &amp; Sewer Services in Dallas-Fort Worth</h2>
           <div class="sub">Precision Plumbing. Not An Oxymoron.</div>
         </div>
-        <div class="svc-grid">
-          <div class="svc"><i class="ph ph-video-camera"></i><strong>Sewer Camera Inspection</strong></div>
-          <div class="svc"><i class="ph ph-pipe"></i><strong>Sewer Line Repair and Replacement</strong></div>
-          <div class="svc"><i class="ph ph-thermometer-hot"></i><strong>Water Heater Replacement</strong></div>
-          <div class="svc"><i class="ph ph-magnifying-glass"></i><strong>Water Leak Detection</strong></div>
-          <div class="svc"><i class="ph ph-drop"></i><strong>Drain Cleaning</strong></div>
-          <div class="svc"><i class="ph ph-toilet"></i><strong>Toilet Repair and Rebuild</strong></div>
-          <div class="svc"><i class="ph ph-drop-half"></i><strong>Water Line Repair and Replacement</strong></div>
-          <div class="svc"><i class="ph ph-flame"></i><strong>Gas Line Repair</strong></div>
+        <div class="svc-grid" id="svcGrid">
+          <button type="button" class="svc" data-svc="0"><span class="svc-top"><i class="ph ph-video-camera svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Sewer Camera Inspection</strong></button>
+          <button type="button" class="svc" data-svc="1"><span class="svc-top"><i class="ph ph-pipe svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Sewer Line Repair and Replacement</strong></button>
+          <button type="button" class="svc" data-svc="2"><span class="svc-top"><i class="ph ph-thermometer-hot svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Water Heater Replacement</strong></button>
+          <button type="button" class="svc" data-svc="3"><span class="svc-top"><i class="ph ph-magnifying-glass svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Water Leak Detection</strong></button>
+          <button type="button" class="svc" data-svc="4"><span class="svc-top"><i class="ph ph-drop svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Drain Cleaning</strong></button>
+          <button type="button" class="svc" data-svc="5"><span class="svc-top"><i class="ph ph-toilet svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Toilet Repair and Rebuild</strong></button>
+          <button type="button" class="svc" data-svc="6"><span class="svc-top"><i class="ph ph-drop-half svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Water Line Repair and Replacement</strong></button>
+          <button type="button" class="svc" data-svc="7"><span class="svc-top"><i class="ph ph-flame svc-ico"></i><i class="ph ph-arrow-up-right svc-arrow"></i></span><strong>Gas Line Repair</strong></button>
         </div>
       </div>
     </section>
@@ -1446,6 +1492,20 @@ with your plumber and see exactly what we see.</p>
     </div>
   </footer>
 
+  <!-- service modal -->
+  <div class="modal-backdrop" id="svcModal" hidden>
+    <div class="modal svc-modal" role="dialog" aria-modal="true" aria-labelledby="svcModalTitle">
+      <button type="button" class="modal-close" aria-label="Close"><i class="ph ph-x"></i></button>
+      <div class="svc-modal-head">
+        <i class="ph svc-modal-ico" id="svcModalIco" aria-hidden="true"></i>
+        <h3 id="svcModalTitle"></h3>
+      </div>
+      <p id="svcModalBody"></p>
+      <ul class="svc-benefits" id="svcModalBenefits"></ul>
+      <a class="svc-modal-call" id="svcModalCall" href="tel:4695468701">(469) 546-8701</a>
+    </div>
+  </div>
+
   <!-- award modal -->
   <div class="modal-backdrop" id="awardModal" hidden>
     <div class="modal" role="dialog" aria-modal="true" aria-labelledby="awardModalTitle">
@@ -1509,6 +1569,108 @@ with your plumber and see exactly what we see.</p>
       });
     })();
   </script>
+
+  <!-- service cards popup -->
+  <script>
+    (function () {
+      var services = [
+        { icon: 'ph-video-camera', title: 'Sewer Camera Inspection',
+          body: 'Watch the footage of your own sewer line, get a written report and footage after.',
+          benefits: ['You see what we see, watch with your tech.', 'Finds cracks and roots without tearing anything up.', 'Included with drain cleaning and inspections.'] },
+        { icon: 'ph-pipe', title: 'Sewer Line Repair and Replacement',
+          body: 'Approve the plan first. New pipe built to last, backed by a 20-year warranty.',
+          benefits: ['Fixes the cause of backups and sewer smells.', 'New pipe won’t rust or crack like old cast iron.', 'One repair, not a patch every year.'] },
+        { icon: 'ph-thermometer-hot', title: 'Water Heater Replacement',
+          body: 'Pick your size and get hot water back the same day, with a 6, 8 or 12-year warranty.',
+          benefits: ['Hot showers tonight, not next week.', 'Not sure of the size? We’ll match it to your household.', 'Commercial grade, (better than big-box store models.)'] },
+        { icon: 'ph-magnifying-glass', title: 'Water Leak Detection',
+          body: 'Know exactly where the leak is before anything gets torn up, and approve a fixed price first.',
+          benefits: ['Stop water damage before it spreads.', 'No guessing, no holes in the wrong places.', 'No hourly meter running, even in an emergency.'] },
+        { icon: 'ph-drop', title: 'Drain Cleaning',
+          body: 'See the clog on camera, then see it gone. Guaranteed clog-free for 120 days.',
+          benefits: ['Proof the pipe is actually clear.', 'Reaches deeper than store-bought snakes.', 'Stop paying for the same clog twice.'] },
+        { icon: 'ph-toilet', title: 'Toilet Repair and Rebuild',
+          body: 'Approve one fixed price before we start. Original parts for every major brand.',
+          benefits: ['No more running, leaking or jiggling the handle.', 'Parts that fit, unlike one-size store kits.', 'A stubborn repair won’t cost you more.'] },
+        { icon: 'ph-drop-half', title: 'Water Line Repair and Replacement',
+          body: 'Book a same-day visit and approve the price before work starts. Every repair is warrantied.',
+          benefits: ['A hidden line leak can quietly raise your water bill.', 'Same-day service stops the bill from climbing.', 'Fixed once, so you’re not paying twice.'] },
+        { icon: 'ph-flame', title: 'Gas Line Repair',
+          body: 'Know the price before we start, with no hidden fees. Same-day help and a permanent fix.',
+          benefits: ['The quote you approve is what you pay.', 'A real repair, not a temporary patch.', 'Fast help when a failed pressure test stalls a home sale.'] }
+      ];
+
+      var backdrop = document.getElementById('svcModal');
+      if (!backdrop) return;
+      var dialog = backdrop.querySelector('.svc-modal');
+      var icoEl = document.getElementById('svcModalIco');
+      var titleEl = document.getElementById('svcModalTitle');
+      var bodyEl = document.getElementById('svcModalBody');
+      var benefitsEl = document.getElementById('svcModalBenefits');
+      var callEl = document.getElementById('svcModalCall');
+      var closeBtn = backdrop.querySelector('.modal-close');
+      var lastFocused = null;
+      var currentTitle = '';
+
+      function track(event, extra) {
+        try { window.dataLayer = window.dataLayer || []; window.dataLayer.push(Object.assign({ event: event }, extra || {})); } catch (e) {}
+        try { if (window.clarity) window.clarity('event', event); } catch (e) {}
+      }
+
+      function openModal(btn, svc) {
+        lastFocused = btn;
+        currentTitle = svc.title;
+        icoEl.className = 'ph svc-modal-ico ' + svc.icon;
+        titleEl.textContent = svc.title;
+        bodyEl.textContent = svc.body;
+        benefitsEl.innerHTML = '';
+        svc.benefits.forEach(function (b) {
+          var li = document.createElement('li');
+          var i = document.createElement('i');
+          i.className = 'ph ph-check-circle';
+          i.setAttribute('aria-hidden', 'true');
+          var span = document.createElement('span');
+          span.textContent = b;
+          li.appendChild(i);
+          li.appendChild(span);
+          benefitsEl.appendChild(li);
+        });
+        backdrop.hidden = false;
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+        document.addEventListener('keydown', onKey);
+        track('service_popup_open', { service_title: svc.title });
+      }
+
+      function closeModal() {
+        backdrop.hidden = true;
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', onKey);
+        if (lastFocused) lastFocused.focus();
+      }
+
+      function onKey(e) {
+        if (e.key === 'Escape') { closeModal(); return; }
+        if (e.key === 'Tab') {
+          var f = dialog.querySelectorAll('button, a[href], [tabindex]:not([tabindex="-1"])');
+          if (!f.length) return;
+          var first = f[0], last = f[f.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      }
+
+      document.querySelectorAll('.svc[data-svc]').forEach(function (btn) {
+        var svc = services[parseInt(btn.getAttribute('data-svc'), 10)];
+        if (!svc) return;
+        btn.addEventListener('click', function () { openModal(btn, svc); });
+      });
+      closeBtn.addEventListener('click', closeModal);
+      backdrop.addEventListener('click', function (e) { if (e.target === backdrop) closeModal(); });
+      callEl.addEventListener('click', function () { track('service_popup_call', { service_title: currentTitle }); });
+    })();
+  </script>
+
   <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
   <script>
     (function () {
